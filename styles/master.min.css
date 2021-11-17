@@ -1,1 +1,67 @@
-.header-wrapper{background-color:#244F59;border-bottom:2px solid #244F59;position:fixed;width:100%}.header-wrapper .header{padding:5px;height:54px;text-align:left;max-width:992px;margin:auto}.header-wrapper .header .menu{float:right;color:#ECF0F1;text-align:right;font-weight:700}#sec-info,.img-container,.name,.title{text-align:center}.header-wrapper .header .menu li{display:inline;padding:0 10px}.header-wrapper .header .menu li a{text-decoration:none;color:inherit;cursor:pointer}.header-wrapper .logo{height:100%;width:auto;margin:auto}.main-content{max-width:992px;margin:auto;padding-bottom:50px;padding-top:56px}.name{margin:0;padding:10px;font-size:2em;font-weight:700}#sec-info .resume-btn{margin-top:10px;color:#fff;background-color:#244F59;border:none;padding:15px;font-weight:500;cursor:pointer;font-size:1em}.img-container{padding-top:10px}.img-container .main-img{width:20%;border-radius:100%;border:5px solid #244F59}.sec .sec-header{color:#244F59;font-weight:700;font-size:2em;border-bottom:3px solid #244F59;margin-top:25px}.sec .sec-content{padding:10px 10px 0}.sec .institution,.sec .proj-name{font-size:1.3em;font-weight:700;margin-top:10px;text-decoration:none;color:inherit}.sec .responsibilities,body,p{margin:0}.sec .timeline{font-size:.9em}.sec .description{font-size:1.1em;padding-top:10px;padding-left:10px}#sec-contact .sec-content{padding-top:25px;text-align:center;font-size:1.3em}*{box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box}body{font-family:Cabin;color:#244F59;background-color:#fff;font-size:14px}button,textarea{font-family:inherit}a,a:visited{color:inherit}
+.header-wrapper{position:fixed;width:100%;top:0px;}.header-wrapper .header{padding:5px;height:54px;text-align:left;max-width:992px;margin:auto}.header-wrapper .header .menu{float:right;color:#ECF0F1;text-align:right;font-weight:700}#sec-info,.img-container,.name,.title{text-align:center}.header-wrapper .header .menu li{display:inline;padding:0 10px}.header-wrapper .header .menu li a{text-decoration:none;color:inherit;cursor:pointer}.header-wrapper .logo{height:100%;width:auto;margin:auto}.main-content{max-width:992px;margin:auto;padding-bottom:50px;padding-top:56px;padding-left:10px;}.name{margin:0;padding:10px;font-size:2em;font-weight:700}#sec-info .resume-btn{margin-top:10px;color:#fff;background-color:#244F59;border:none;padding:15px;font-weight:500;cursor:pointer;font-size:1em}.img-container{padding-top:10px}.img-container .main-img{width:20%;border-radius:100%;border:5px solid #244F59}.sec .sec-header{color:#244F59;font-weight:700;font-size:2em;border-bottom:3px solid #244F59;margin-top:25px}.sec .sec-content{padding:10px 10px 0}.sec .institution,.sec .proj-name{font-size:1.3em;font-weight:700;margin-top:10px;text-decoration:none;color:inherit}.sec .responsibilities,body,p{margin:0}.sec .timeline{font-size:.9em}.sec .description{font-size:1.1em;padding-top:10px;padding-left:10px}#sec-contact .sec-content{padding-top:25px;text-align:center;font-size:1.3em}*{box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box}body{font-family:Cabin;color:#244F59;background-color:#fff;font-size:14px}button,textarea{font-family:inherit}a,a:visited{color:inherit}
+
+
+
+
+.nav-sec:hover {
+    box-shadow:rgb(0 10 0 / 70%) 0 0 25px;   
+    }
+    
+
+    #header {
+        position: relative;
+        height: 1000px;
+        /* center text */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+              }
+      
+      #header:before {
+        content: '';
+        background: url('https://developer.playcanvas.com/images/user-manual/scripting/go-to-anything.gif') repeat-x left;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        filter: blur(3px);   
+  
+  
+      }
+      .repeat {
+        content: '';
+        background: url('https://developer.playcanvas.com/images/user-manual/scripting/go-to-anything.gif') repeat;
+       height:1000px;
+        filter: blur(3px);   
+  
+  
+      }
+      
+      #header-text {
+        background-color: #fff;
+        position: relative;
+        top: -1930px;
+        border-radius: 0.9375rem;
+      }
+
+      
+
+
+#changeheader.minimal {
+    background: #ffffff;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    -moz-box-shadow: rgba(0,0,0,0.3) 0 0 10px;
+    -webkit-box-shadow: rgb(0 0 0 / 30%) 0 0 10px;
+    box-shadow: rgb(0 0 0 / 30%) 0 0 10px;
+    font-family: Cabin;
+    z-index: 999;
+    
+}
+
+#menuid.colorchange{
+    color: #244F59!important;
+}
+      

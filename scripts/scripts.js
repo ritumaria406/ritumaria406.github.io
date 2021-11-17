@@ -11,3 +11,13 @@ window.addEventListener('load', function() {
 		}
 	}
 });
+$(window).scroll(function () {
+	var scroll = $(window).scrollTop();
+	var objectSelect = $(".content-wrap");
+	var objectPosition = objectSelect.offset().top;
+	if (scroll > objectPosition) {
+		$("#changeheader").addClass("minimal");
+	} else {
+		$("#changeheader").removeClass("minimal");
+	}
+});

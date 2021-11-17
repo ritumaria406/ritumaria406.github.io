@@ -2,10 +2,7 @@
     <head>
         <meta charset="utf-8">
         
-        <link rel="icon" type="image/x-icon" sizes="16x16" href="images/favicons/favicon-16x16.ico">
-        <link rel="icon" type="image/x-icon" sizes="32x32" href="images/favicons/favicon-32x32.ico">
-        <link rel="icon" type="image/x-icon" sizes="96x96" href="images/favicons/favicon-96x96.ico">
-        
+       
         <title>Ritu Maria Joy - Personal Website</title>
         <meta name="description" content="Personal Website of Ritu Maria Joy">
         <meta name="author" content="Ritu Maria Joy">
@@ -16,233 +13,288 @@
         <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-      
+        <script type="text/javascript" src="scripts/jquery-1.10.2.min.js"></script>
+
+        <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>            
+     <script type="text/javascript" src="scripts/fadeInScroll.jQuery.js"></script>
+     <!--<script type="text/javascript" src="scripts/scripts.js"></script>-->
         
-      </head><body>
+      </head>
+      <script type="text/javascript">
+     
+        $(window).scroll(function () {
+                var scroll = $(window).scrollTop();
+                var objectSelect = $(".main-content");
+                var objectPosition = objectSelect.offset().top;
+                if (scroll > objectPosition) {
+                    $("#changeheader").addClass("minimal");
+                    $("#menuid").addClass("colorchange");
+                } else {
+                    $("#changeheader").removeClass("minimal");
+                    $("#menuid").removeClass("colorchange");
+                }
+            });
 
-    <header class="header-wrapper">
-      <div class="header">
-        <a href="#"><img src="images/logo-web-2.png" class="logo"></a>
-        <ul class="menu">
-          <li><a class="nav-sec" data-nav="#sec-info">Home</a></li>
-          <li><a class="nav-sec" data-nav="#sec-experience">Experience</a></li>
-          <li><a class="nav-sec" data-nav="#sec-education">Education</a></li>
-          <li><a class="nav-sec" data-nav="#sec-projects">Projects</a></li>
-          <li><a class="nav-sec" data-nav="#sec-contact">Contact</a></li>
-        </ul>
-      </div>
-    </header>
-    
-    <section class="main-content">
-        <!-- Add tags and day -->
-        <!-- <button class="dl-cv">Grab my CV</button> -->
-        <section id="sec-info"> 
-          <div class="img-container">
-            <img class="main-img" src="images/image-ritu.jpg">
-          </div>
-          <p class="name">Ritu Maria Joy</p>
-          <p class="title">Senior C# Developer</p>
-            <a href="docs/CV.pdf" target="blank"><button class="resume-btn">Grab my CV!</button></a>
-          
-        </section> 
-        <section class="sec" id="sec-experience">
-          <p class="sec-header">Experience</p>
-          <div class="sec-content">
-              <a href="https://www.aspiresys.com/" target="blank" class="institution">
-                RapidValue IT Services - An Aspire Systems Company
-              </a>
-              <p class="timeline">
-                January 2020 - till date
-              </p>
-              <p class="description">
-                <strong>Position:</strong> Technical Leader<br>
-                <strong>Responsibilities:</strong>
-                </p><ul class="responsibilities">
-                    <h3>End-to-End Software Development</h3>
-                  <li>Oversaw the entire software development life cycle, debugged applications & configured existing systems</li>
-                  <li>Estimate work capacity</li>
-                  <li>Software architecture design and database design</li>
-                  <li>Consumed and implemented code to handle data from other application using Web API</li>
-                  <li>Reduced the manual efforts of support team by 100% and automated client billing invoice </li>
-                 <li>Performed Scrum activities like creating user stories, sprint planning, and sprint retrospectives</li>
-                  <li>Resolved and tracked issues while avoiding escalation</li>
-                </ul>
-              <p></p>
-            </div>
-          <div class="sec-content">
-            <a href="https://www.cognizant.com/" target="blank" class="institution">
-              Cognizant Technology Solutions
-            </a>
-            <p class="timeline">
-              September 2014-December 2019
-            </p>
-            <p class="description">
-              <strong>Position:</strong> Associate - Projects<br>
-              <strong>Responsibilities:</strong>
-              </p><ul class="responsibilities">
-                <li>Development of software and web solutionsusing .NET framework</li>
-                <li>Involved in software architectures designs and prototyping</li>
-                <li>Involved in both, front-end and back-end programming</li>
-                <li>Working with mobile,web and hybrid applications</li>
-                <li>Developing web services and RESTful APIs</li>
-                <li>Analysing and researching various technologies needed for current and future projects</li>
-                <li>Communicating and collaborating with partners and clients</li>
-                <li>Analysing software requirements specifications and preparing project docs</li>
-              </ul>
-            <p></p>
-          </div>         
-        </section>
-        <section class="sec" id="sec-education">
-          <p class="sec-header">Education</p>
-          <div class="sec-content">
-              <a href="https://saintgits.org/engineering-college/btech/" target="blank" class="institution">
-                Saintgits College of Engineering 
-              </a>
-              <p class="timeline">
-                Jun 2010 - May 2014
-              </p>      
-              <p class="description">
-                <strong>CGPA:</strong> 8.3/10<br>
-              <strong>Specialization:</strong> Computer Science Engineering<br>
-                </p>        
-            </div>
-          
-          
-          <div class="sec-content">
-            <a href="https://www.krishnapublicschool.com/default.aspx" target="blank" class="institution">
-              Higher Secondary School - Krishna Public School
-            </a>
-            <p class="timeline">
-              June 2009 - May 2010
-            </p>
-            <p class="description">
-                <strong>Grade:</strong> 83 %<br>
-              <strong>Section:</strong> Physics Chemistry Maths<br>
-              <strong>Core subjects:</strong> English, Physycs, Chemistry, Mathematics, Programming <br>
-            </p>
-          </div>
+            window.addEventListener('load', function() {
+	//navigate to sections
+	var navs = document.getElementsByClassName("nav-sec");
+	for (var i=0; i < navs.length; i++) {
+	  	navs[i].onclick = function(){
+	  		var selector = this.getAttribute('data-nav');
+	  		console.log(document.querySelector(selector));
+	  		var offset = document.querySelector(selector).offsetTop;
+	  		var headerHeigh = 56;
+	  		window.scrollTo(0, offset - headerHeigh);
+		}
+	}
+});
 
-          <div class="sec-content">
-            <a href="https://www.krishnapublicschool.com/default.aspx" target="blank" class="institution">
-               Secondary School - Krishna Public School
-            </a>
-            <p class="timeline">
-              June 2007 - May 2008
-            </p>
-            <p class="description">
-                <strong>Grade:</strong> 86 %<br>
-              <strong>Section:</strong> Physics Chemistry Maths<br>
-              <strong>Core subjects:</strong> English, Physycs, Chemistry, Mathematics, Hindi <br>
-            </p>
-          </div>
-    
-        </section>
-        <section class="sec" id="sec-projects">
-          <p class="sec-header">Projects</p>
-          <div class="sec-content">
-            <p class="proj-name">iFACS System</p>
-            <p class="timeline">November 2020-Present</p>
-            <p class="description">          
-            <strong>Description: </strong> 
-            iFACS is an web application that enables collection of fine(s) from a rental car customer for traffic violations
-acquired during the time a customer rents a car. iFACS interfaces directly and indirectly with other applications for
-tasks associated with securely obtaining or passing vehicle/client/driver information and billing</p>
-            <strong>Technology:</strong> Asp.Net, C#, Linq, Javascript HTML, Ajax, Web API, WCF, Oracle
-            </p>
-          </div>
-          <div class="sec-content">
-            <p class="proj-name">Corporate Website</p>
-            <p class="timeline">July 2020 – October 2020</p>
-            <p class="description">            
-            <strong>Description: </strong> 
-            Corporate Website is a web application provides an interface for viewing the toll road details of different states of United States and Canada. It provides a platform for content updating and has payment module for different type of invoices and auto receipt subscription. 
-            <br>
-            <strong>Technology:</strong> Asp.Net, C#, Linq, Javascript, Web API, HTML, Ajax, CSS, SQL Server
-            </p>
-          </div>
-          <div class="sec-content">
-            <p class="proj-name">Etolls</p>
-            <p class="timeline">February 2020 – June 2020</p>
-            <p class="description">            
-            <strong>Description: </strong> 
-            E-tolls is a web application provides an interface for content updating and has payment module for different type of invoices and auto receipt subscription. 
-            <br>
-            <strong>Technology:</strong> Asp.Net, C#, Linq, Javascript, Web API, HTML, Ajax, CSS, SQL Server
-            </p>
-          </div>
-         
-          <div class="sec-content">
-            <p class="proj-name">Travel Compliance</p>
-            <p class="timeline">January 2019 - December 2019</p>
-            <p class="description">            
-            <strong>Description: </strong> 
-            Travel Compliance captured all travel permit related queries for all Cognizant associates travelling across the globe.
-            The travel questionnaires, project related details, travel compliance as per Cognizant policies is ensured.
-            <br>
-            <strong>Technology:</strong> ASP .NET MVC, C#, Linq, Javascript, HTML, Ajax, CSS, SQL Server
-            </p>
-          </div>
-          <div class="sec-content">
-            <p class="proj-name">Cloud Migration Of Application</p>
-            <p class="timeline">January 2018 - December 2018</p>
-            <p class="description">            
-            <strong>Description: </strong> 
-            	Ensured the smooth migration of My I-94 and Green card application to Azure <br>
-                Upgradation of application, security validations, encryption of data, performance improvement, development testing and deployment of application to Azure, AWS.
-            </p>
-                <br>
-            
-            </p>
-          </div>
-
-          <div class="sec-content">
-            <p class="proj-name">My I94 </p>
-            <p class="timeline">November 2016 - October 2017</p>
-            <p class="description">            
-            <strong>Description: </strong> 
-            The Application helps Associates to add I94 number and documents when they reach US and Global mobility team can review it. Associate will be notified on expiry of I94 date.
-            <br>
-            <strong>Technology:</strong> ASP .NET, C#, Linq, Javascript, HTML, Ajax, CSS, SQL Server
-            </p>
-          </div>
-
-          <div class="sec-content">
-            <p class="proj-name">H Conversion  </p>
-            <p class="timeline">May 2016 - October 2016</p>
-            <p class="description">            
-            <strong>Description: </strong> 
-            The Application helps Associates to convert existing US Visa types to H1 Visa along with their dependents and file the petition.
-            <br>
-            <strong>Technology:</strong> ASP .NET, C#, Linq, Javascript, HTML, Ajax, CSS, SQL Server
-            </p>
-          </div>
-
-          <div class="sec-content">
-            <p class="proj-name">H1B Nomination  </p>
-            <p class="timeline">January 2015 - April 2016</p>
-            <p class="description">            
-            <strong>Description: </strong> 
-            This Application helps Associates to check their eligibility for H1B Visa to USA as per USICS regulation and file the petition according to eligibility. This ensures multiple checks for the details and documents submitted at different levels and ensure no rejections happened after petition filing. 
-            Associates H1B filing is finalized through various roles configured for immigration team in the app.
-            <br>
-            <strong>Technology:</strong> ASP .NET, C#, Linq, Javascript, HTML, Ajax, CSS, SQL Server
-            </p>
-          </div>
-          
-        </section>
-        <section class="sec" id="sec-contact">
-          <p class="sec-header">Contact</p>
-          <p class="sec-content">
            
-            <strong>E-mail:</strong> <a href="mailto:ritumj406@gmail.com">ritumj406@gmail.com</a> <br>
-            <strong>Telephone:</strong> +974-33406951 <br>
-            <strong>Telephone:</strong> +91-8129714952
-          </p>
-        </section>
+            </script>
+      
+      <body>
+       
+        <div class="container">
+          
+          <div class="row">
+            <div class="repeat"></div>
+            <div class="repeat"></div>
+           <!-- <img class="slide-pic" src="images/gif_file.gif">-->
+            <div class="col-sm-12" id="header">
+              <header class="header-wrapper" id="changeheader">
+                <div class="header">
+                  <a href="#"></a>
+                  <ul class="menu" id="menuid">
+                    <li><a class="nav-sec" data-nav="#sec-info">Home</a></li>
+                    <li><a class="nav-sec" data-nav="#sec-experience">Experience</a></li>
+                    <li><a class="nav-sec" data-nav="#sec-education">Education</a></li>
+                    <li><a class="nav-sec" data-nav="#sec-projects">Projects</a></li>
+                    <li><a class="nav-sec" data-nav="#sec-contact">Contact</a></li>
+                  </ul>
+                </div>
+              </header>
+              <section class="main-content" id="header-text">
+                <!-- Add tags and day -->
+                <!-- <button class="dl-cv">Grab my CV</button> -->
+                <section id="sec-info"> 
+                  <div class="img-container">
+                    <img class="main-img" src="images/image-ritu.jpg">
+                  </div>
+                  <p class="name">Ritu Maria Joy</p>
+                  <p class="title">Senior C# Developer</p>
+                    <a href="docs/CV.pdf" target="blank"><button class="resume-btn">Grab my CV!</button></a>
+                  
+                </section> 
+                <section class="sec" id="sec-experience">
+                  <p class="sec-header">Experience</p>
+                  <div class="sec-content">
+                      <a href="https://www.aspiresys.com/" target="blank" class="institution">
+                        RapidValue IT Services - An Aspire Systems Company
+                      </a>
+                      <p class="timeline">
+                        January 2020 - till date
+                      </p>
+                      <p class="description">
+                        <strong>Position:</strong> Technical Leader<br>
+                        <strong>Responsibilities:</strong>
+                        </p><ul class="responsibilities">
+                            <h3>End-to-End Software Development</h3>
+                          <li>Oversaw the entire software development life cycle, debugged applications & configured existing systems</li>
+                          <li>Estimate work capacity</li>
+                          <li>Software architecture design and database design</li>
+                          <li>Consumed and implemented code to handle data from other application using Web API</li>
+                          <li>Reduced the manual efforts of support team by 100% and automated client billing invoice </li>
+                         <li>Performed Scrum activities like creating user stories, sprint planning, and sprint retrospectives</li>
+                          <li>Resolved and tracked issues while avoiding escalation</li>
+                        </ul>
+                      <p></p>
+                    </div>
+                    <div class="sec-content">
+                      <a href="https://www.cognizant.com/" target="blank" class="institution">
+                        Cognizant Technology Solutions
+                      </a>
+                      <p class="timeline">
+                        September 2014-December 2019
+                      </p>
+                      <p class="description">
+                        <strong>Position:</strong> Associate - Projects<br>
+                        <strong>Responsibilities:</strong>
+                        </p><ul class="responsibilities">
+                          <li>Development of software and web solutionsusing .NET framework</li>
+                          <li>Involved in software architectures designs and prototyping</li>
+                          <li>Involved in both, front-end and back-end programming</li>
+                          <li>Working with mobile,web and hybrid applications</li>
+                          <li>Developing web services and RESTful APIs</li>
+                          <li>Analysing and researching various technologies needed for current and future projects</li>
+                          <li>Communicating and collaborating with partners and clients</li>
+                          <li>Analysing software requirements specifications and preparing project docs</li>
+                        </ul>
+                      <p></p>
+                    </div>         
+                  </section>
+                  <section class="sec" id="sec-education">
+                    <p class="sec-header">Education</p>
+                    <div class="sec-content">
+                        <a href="https://saintgits.org/engineering-college/btech/" target="blank" class="institution">
+                          Saintgits College of Engineering 
+                        </a>
+                        <p class="timeline">
+                          Jun 2010 - May 2014
+                        </p>      
+                        <p class="description">
+                          <strong>CGPA:</strong> 8.3/10<br>
+                        <strong>Specialization:</strong> Computer Science Engineering<br>
+                          </p>        
+                      </div>
+                    
+                    
+                    <div class="sec-content">
+                      <a href="https://www.krishnapublicschool.com/default.aspx" target="blank" class="institution">
+                        Higher Secondary School - Krishna Public School
+                      </a>
+                      <p class="timeline">
+                        June 2009 - May 2010
+                      </p>
+                      <p class="description">
+                          <strong>Grade:</strong> 83 %<br>
+                        <strong>Section:</strong> Physics Chemistry Maths<br>
+                        <strong>Core subjects:</strong> English, Physycs, Chemistry, Mathematics, Programming <br>
+                      </p>
+                    </div>
+          
+                    <div class="sec-content">
+                      <a href="https://www.krishnapublicschool.com/default.aspx" target="blank" class="institution">
+                         Secondary School - Krishna Public School
+                      </a>
+                      <p class="timeline">
+                        June 2007 - May 2008
+                      </p>
+                      <p class="description">
+                          <strong>Grade:</strong> 86 %<br>
+                        <strong>Section:</strong> Physics Chemistry Maths<br>
+                        <strong>Core subjects:</strong> English, Physycs, Chemistry, Mathematics, Hindi <br>
+                      </p>
+                    </div>
+              
+                  </section>
+                  <section class="sec" id="sec-projects">
+                    <p class="sec-header">Projects</p>
+                    <div class="sec-content">
+                      <p class="proj-name">iFACS System</p>
+                      <p class="timeline">November 2020-Present</p>
+                      <p class="description">          
+                      <strong>Description: </strong> 
+                      iFACS is an web application that enables collection of fine(s) from a rental car customer for traffic violations
+          acquired during the time a customer rents a car. iFACS interfaces directly and indirectly with other applications for
+          tasks associated with securely obtaining or passing vehicle/client/driver information and billing</p>
+                      <strong>Technology:</strong> Asp.Net, C#, Linq, Javascript HTML, Ajax, Web API, WCF, Oracle
+                      </p>
+                    </div>
+                    <div class="sec-content">
+                      <p class="proj-name">Corporate Website</p>
+                      <p class="timeline">July 2020 – October 2020</p>
+                      <p class="description">            
+                      <strong>Description: </strong> 
+                      Corporate Website is a web application provides an interface for viewing the toll road details of different states of United States and Canada. It provides a platform for content updating and has payment module for different type of invoices and auto receipt subscription. 
+                      <br>
+                      <strong>Technology:</strong> Asp.Net, C#, Linq, Javascript, Web API, HTML, Ajax, CSS, SQL Server
+                      </p>
+                    </div>
+                    <div class="sec-content">
+                      <p class="proj-name">Etolls</p>
+                      <p class="timeline">February 2020 – June 2020</p>
+                      <p class="description">            
+                      <strong>Description: </strong> 
+                      E-tolls is a web application provides an interface for content updating and has payment module for different type of invoices and auto receipt subscription. 
+                      <br>
+                      <strong>Technology:</strong> Asp.Net, C#, Linq, Javascript, Web API, HTML, Ajax, CSS, SQL Server
+                      </p>
+                    </div>
+                   
+                    <div class="sec-content">
+                      <p class="proj-name">Travel Compliance</p>
+                      <p class="timeline">January 2019 - December 2019</p>
+                      <p class="description">            
+                      <strong>Description: </strong> 
+                      Travel Compliance captured all travel permit related queries for all Cognizant associates travelling across the globe.
+                      The travel questionnaires, project related details, travel compliance as per Cognizant policies is ensured.
+                      <br>
+                      <strong>Technology:</strong> ASP .NET MVC, C#, Linq, Javascript, HTML, Ajax, CSS, SQL Server
+                      </p>
+                    </div>
+                    <div class="sec-content">
+                      <p class="proj-name">Cloud Migration Of Application</p>
+                      <p class="timeline">January 2018 - December 2018</p>
+                      <p class="description">            
+                      <strong>Description: </strong> 
+                        Ensured the smooth migration of My I-94 and Green card application to Azure <br>
+                          Upgradation of application, security validations, encryption of data, performance improvement, development testing and deployment of application to Azure, AWS.
+                      </p>
+                          <br>
+                      
+                      </p>
+                    </div>
+          
+                    <div class="sec-content">
+                      <p class="proj-name">My I94 </p>
+                      <p class="timeline">November 2016 - October 2017</p>
+                      <p class="description">            
+                      <strong>Description: </strong> 
+                      The Application helps Associates to add I94 number and documents when they reach US and Global mobility team can review it. Associate will be notified on expiry of I94 date.
+                      <br>
+                      <strong>Technology:</strong> ASP .NET, C#, Linq, Javascript, HTML, Ajax, CSS, SQL Server
+                      </p>
+                    </div>
+          
+                    <div class="sec-content">
+                      <p class="proj-name">H Conversion  </p>
+                      <p class="timeline">May 2016 - October 2016</p>
+                      <p class="description">            
+                      <strong>Description: </strong> 
+                      The Application helps Associates to convert existing US Visa types to H1 Visa along with their dependents and file the petition.
+                      <br>
+                      <strong>Technology:</strong> ASP .NET, C#, Linq, Javascript, HTML, Ajax, CSS, SQL Server
+                      </p>
+                    </div>
+          
+                    <div class="sec-content">
+                      <p class="proj-name">H1B Nomination  </p>
+                      <p class="timeline">January 2015 - April 2016</p>
+                      <p class="description">            
+                      <strong>Description: </strong> 
+                      This Application helps Associates to check their eligibility for H1B Visa to USA as per USICS regulation and file the petition according to eligibility. This ensures multiple checks for the details and documents submitted at different levels and ensure no rejections happened after petition filing. 
+                      Associates H1B filing is finalized through various roles configured for immigration team in the app.
+                      <br>
+                      <strong>Technology:</strong> ASP .NET, C#, Linq, Javascript, HTML, Ajax, CSS, SQL Server
+                      </p>
+                    </div>
+                    
+                  </section>
+                  <section class="sec" id="sec-contact">
+                    <p class="sec-header">Contact</p>
+                    <p class="sec-content">
+                     
+                      <strong>E-mail:</strong> <a href="mailto:ritumj406@gmail.com">ritumj406@gmail.com</a> <br>
+                      <strong>Telephone:</strong> +974-33406951 <br>
+                      <strong>Telephone:</strong> +91-8129714952
+                    </p>
+                  </section>
+              </section>
+            
+            
+            </div>
+           
+          </div>
+        </div>
+        <!--<div class="blured-overlay">
+          <img class="slide-pic" src="images/gif_file.gif">
+        </div>-->
+
+   
     
-    </section>
     
-    <script src="scripts/scripts.js"></script> 
+    
+  
     
     
     
